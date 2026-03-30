@@ -8,37 +8,174 @@ import java.util.function.Function;
 public class Main {
     public static void main(String[] args) throws IOException {
         FileWriter fw = new FileWriter("pomiary.txt");
-        int[] sizes = {1,10000,50000,75000,100000};
+        //int[] sizes = {100,5000,10000,50000,75000,100000};
+        int[] sizes = {100};
         Random rand = new Random();
-        for(Integer i:sizes){
-            System.out.println("Rozpoczecie pomiaru dla: " + i + "\n" + "-Insertion, randomArray ");
-            fw.write("Insertion sort dla listy o wielkosci: " + i + "\n");
-            fw.write("Random czas: " + (sortingAlgorithms.algorythmTime(
-                    sortingAlgorithms::insertionSort,
-                    listGenerators::generateRandomArray,i)) + "s\n");
-            System.out.println("-Insertion, decrasing");
+        
+        {//Insertion
+            for (Integer i : sizes) {
+                System.out.println("Rozpoczecie pomiaru dla: " + i + "\n" + "-Insertion, randomArray ");
+                fw.write("Insertion sort dla listy o wielkosci " + i + "\n");
+                fw.write("Random " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::insertionSort,
+                        listGenerators::generateRandomArray, i)) + "\n");
+                System.out.println("-Insertion, decrasing");
 
-            fw.write("Deacrisng  czas: " + (sortingAlgorithms.algorythmTime(
-                    sortingAlgorithms::insertionSort,
-                    listGenerators::generateDecreasingArray,i)) + "s\n");
-            System.out.println("-Insertion, increasing");
+                fw.write("Deacrisng  " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::insertionSort,
+                        listGenerators::generateDecreasingArray, i)) + "\n");
+                System.out.println("-Insertion, increasing");
 
-            fw.write("Increasing czas: " + (sortingAlgorithms.algorythmTime(
-                    sortingAlgorithms::insertionSort,
-                    listGenerators::generateIncreasingArray,i)) + "s\n");
-            System.out.println("-Insertion, ashaped");
+                fw.write("Increasing " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::insertionSort,
+                        listGenerators::generateIncreasingArray, i)) + "\n");
+                System.out.println("-Insertion, ashaped");
 
-            fw.write("AShaped czas: " + (sortingAlgorithms.algorythmTime(
-                    sortingAlgorithms::insertionSort,
-                    listGenerators::generateAShapedArray,i)) + "s\n");
-            System.out.println("-Insertion, constant");
+                fw.write("AShaped " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::insertionSort,
+                        listGenerators::generateAShapedArray, i)) + "\n");
+                System.out.println("-Insertion, constant");
 
-            fw.write("Constant czas: " + (sortingAlgorithms.algorythmTime(
-                    sortingAlgorithms::insertionSort,
-                    (rozmiar) -> listGenerators.generateConstantArray(i,rand.nextInt(1000)),i)) + "s\n");
-            fw.write("\n");
-            System.out.println("Koniec pomiaru");
+                fw.write("Constant " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::insertionSort,
+                        (rozmiar) -> listGenerators.generateConstantArray(i, rand.nextInt(1000)), i)) + "\n");
+                fw.write("\n");
+                System.out.println("Koniec pomiaru");
+            }
         }
+        fw.write("\n\n");
+        
+        {// shellSort
+            for (Integer i : sizes) {
+                System.out.println("Rozpoczecie pomiaru dla: " + i + "\n" + "-shell, randomArray ");
+                fw.write("Shell sort dla listy o wielkosci " + i + "\n");
+                fw.write("Random " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::shellSort,
+                        listGenerators::generateRandomArray, i)) + "\n");
+                System.out.println("-shell, decrasing");
+
+                fw.write("Deacrisng  " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::shellSort,
+                        listGenerators::generateDecreasingArray, i)) + "\n");
+                System.out.println("-shell, increasing");
+
+                fw.write("Increasing " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::shellSort,
+                        listGenerators::generateIncreasingArray, i)) + "\n");
+                System.out.println("-shell, ashaped");
+
+                fw.write("AShaped " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::shellSort,
+                        listGenerators::generateAShapedArray, i)) + "\n");
+                System.out.println("-shell, constant");
+
+                fw.write("Constant " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::shellSort,
+                        (rozmiar) -> listGenerators.generateConstantArray(i, rand.nextInt(1000)), i)) + "\n");
+                fw.write("\n");
+                System.out.println("Koniec pomiaru");
+            }
+        }
+        fw.write("\n\n");
+        
+        {// selectionSort
+            for (Integer i : sizes) {
+                System.out.println("Rozpoczecie pomiaru dla: " + i + "\n" + "selection, randomArray ");
+                fw.write("selection sort dla listy o wielkosci " + i + "\n");
+                fw.write("Random " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::selectionSort,
+                        listGenerators::generateRandomArray, i)) + "\n");
+                System.out.println("-selection, decrasing");
+
+                fw.write("Deacrisng  " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::selectionSort,
+                        listGenerators::generateDecreasingArray, i)) + "\n");
+                System.out.println("-selection, increasing");
+
+                fw.write("Increasing " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::selectionSort,
+                        listGenerators::generateIncreasingArray, i)) + "\n");
+                System.out.println("-selection, ashaped");
+
+                fw.write("AShaped " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::selectionSort,
+                        listGenerators::generateAShapedArray, i)) + "\n");
+                System.out.println("-selection, constant");
+
+                fw.write("Constant " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::selectionSort,
+                        (rozmiar) -> listGenerators.generateConstantArray(i, rand.nextInt(1000)), i)) + "\n");
+                fw.write("\n");
+                System.out.println("Koniec pomiaru");
+            }
+        }
+        fw.write("\n\n");
+        
+        {// heapSort
+            for (Integer i : sizes) {
+                System.out.println("Rozpoczecie pomiaru dla: " + i + "\n" + "-heap, randomArray ");
+                fw.write("Heap sort dla listy o wielkosci " + i + "\n");
+                fw.write("Random " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::heapSort,
+                        listGenerators::generateRandomArray, i)) + "\n");
+                System.out.println("-heap, decrasing");
+
+                fw.write("Deacrisng  " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::heapSort,
+                        listGenerators::generateDecreasingArray, i)) + "\n");
+                System.out.println("-heap, increasing");
+
+                fw.write("Increasing " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::heapSort,
+                        listGenerators::generateIncreasingArray, i)) + "\n");
+                System.out.println("-heap, ashaped");
+
+                fw.write("AShaped " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::heapSort,
+                        listGenerators::generateAShapedArray, i)) + "\n");
+                System.out.println("-heap, constant");
+
+                fw.write("Constant " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::heapSort,
+                        (rozmiar) -> listGenerators.generateConstantArray(i, rand.nextInt(1000)), i)) + "\n");
+                fw.write("\n");
+                System.out.println("Koniec pomiaru");
+            }
+        }
+        fw.write("\n\n");
+
+        { // QuickSort
+            for (Integer i : sizes) {
+                System.out.println("Rozpoczecie pomiaru dla: " + i + "\n" + "-quick, randomArray ");
+                fw.write("Quick sort dla listy o wielkosci " + i + "\n");
+                fw.write("Random " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::quickSort,
+                        listGenerators::generateRandomArray, i)) + "\n");
+                System.out.println("-quick, decrasing");
+
+                fw.write("Deacrisng  " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::quickSort,
+                        listGenerators::generateDecreasingArray, i)) + "\n");
+                System.out.println("-quick, increasing");
+
+                fw.write("Increasing " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::quickSort,
+                        listGenerators::generateIncreasingArray, i)) + "\n");
+                System.out.println("-quick, ashaped");
+
+                fw.write("AShaped " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::quickSort,
+                        listGenerators::generateAShapedArray, i)) + "\n");
+                System.out.println("-quick, constant");
+
+                fw.write("Constant " + (sortingAlgorithms.algorythmTime(
+                        sortingAlgorithms::quickSort,
+                        (rozmiar) -> listGenerators.generateConstantArray(i, rand.nextInt(1000)), i)) + "\n");
+                fw.write("\n");
+                System.out.println("Koniec pomiaru");
+            }
+        }
+        
         fw.close();
     }
 }
