@@ -35,7 +35,7 @@ public class Main {
 
             fw.write("Constant czas: " + (sortingAlgorithms.algorythmTime(
                     sortingAlgorithms::insertionSort,
-                    (rozmiar) -> listGenerators.generateConstantArray(i,rand.nextInt(1000)),i)) + "ms\n");
+                    (rozmiar) -> listGenerators.generateConstantArray(i,rand.nextInt(1000)),i)) + "s\n");
             fw.write("\n");
             System.out.println("Koniec pomiaru");
         }
@@ -64,7 +64,7 @@ class listGenerators{
     public static List<Integer> generateDecreasingArray(int size) {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-            list.add(i);
+            list.add(size-i);
         }
         return list;
     }
@@ -84,7 +84,7 @@ class listGenerators{
             list.add(i);
         }
         for (int i = halfSize; i < size; i++) {
-            list.add(i);
+            list.add(size - i);
         }
         return list;
     }
