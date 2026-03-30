@@ -8,7 +8,7 @@ import java.util.function.Function;
 public class Main {
     public static void main(String[] args) throws IOException {
         FileWriter fw = new FileWriter("pomiary.txt");
-        int[] sizes = {100,5000,10000,50000,75000,100000};
+        int[] sizes = {100,5000,10000,50000,61767,100000};
         Random rand = new Random();
         {//Insertion
             for (Integer i : sizes) {
@@ -140,6 +140,7 @@ public class Main {
                 System.out.println("Koniec pomiaru");
             }
         }
+
         fw.write("\n\n");
         { // QuickSort
             for (Integer i : sizes) {
@@ -157,7 +158,7 @@ public class Main {
                     fw.write("Increasing " + (sortingAlgorithms.algorythmTime(
                             sortingAlgorithms::quickSort,
                             listGenerators::generateIncreasingArray, i)) + "\n");
-                    if(i<75000) {
+                    if(i<=61767) {
                         System.out.println("-quick, constant");
                         fw.write("Constant " + (sortingAlgorithms.algorythmTime(
                                 sortingAlgorithms::quickSort,
@@ -169,7 +170,7 @@ public class Main {
                 fw.write("AShaped " + (sortingAlgorithms.algorythmTime(
                         sortingAlgorithms::quickSort,
                         listGenerators::generateAShapedArray, i)) + "\n");
-
+                fw.write("\n");
                 System.out.println("Koniec pomiaru");
             }
         }
