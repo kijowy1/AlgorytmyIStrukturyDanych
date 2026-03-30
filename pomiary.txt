@@ -213,6 +213,6 @@ Quick sort dla listy o wielkosci 100000
 Random 0.015
 Deacrisng  0.011
 Increasing 0.008
-wywala stackoverflow dla wiekszych niz 75000, to po prostu nie robie xd 
+wywala stackoverflow dla wiekszych niz 61768, to po prostu nie robie xd
 AShaped 0.009
 
