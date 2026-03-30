@@ -1,35 +1,21 @@
-Insertion sort dla listy o wielkosci: 1
-Random czas: 0.0s
-Deacrisng  czas: 0.0s
-Increasing czas: 0.0s
-AShaped czas: 0.0s
-Constant czas: 0.0s
+Insertion sort dla listy o wielkosci 10
+Random czas 0.0
+Deacrisng  czas 0.0
+Increasing czas 0.0
+AShaped czas 0.0
+Constant czas 0.0
 
-Insertion sort dla listy o wielkosci: 10000
-Random czas: 0.136s
-Deacrisng  czas: 0.178s
-Increasing czas: 0.0s
-AShaped czas: 0.082s
-Constant czas: 0.0s
+Insertion sort dla listy o wielkosci 1000
+Random czas 0.02
+Deacrisng  czas 0.014
+Increasing czas 0.0
+AShaped czas 0.001
+Constant czas 0.0
 
-Insertion sort dla listy o wielkosci: 50000
-Random czas: 2.577s
-Deacrisng  czas: 2.581s
-Increasing czas: 0.001s
-AShaped czas: 1.277s
-Constant czas: 0.0s
-
-Insertion sort dla listy o wielkosci: 75000
-Random czas: 4.989s
-Deacrisng  czas: 5.69s
-Increasing czas: 0.0s
-AShaped czas: 2.817s
-Constant czas: 0.003s
-
-Insertion sort dla listy o wielkosci: 100000
-Random czas: 8.412s
-Deacrisng  czas: 10.835s
-Increasing czas: 0.002s
-AShaped czas: 5.166s
-Constant czas: 0.0s
+Insertion sort dla listy o wielkosci 1
+Random czas 0.0
+Deacrisng  czas 0.0
+Increasing czas 0.0
+AShaped czas 0.0
+Constant czas 0.0
 
