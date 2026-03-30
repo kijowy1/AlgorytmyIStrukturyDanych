@@ -1,9 +1,44 @@
 Insertion sort dla listy o wielkosci 100
-Random 0.001
-Deacrisng  0.0
+Random 0.005
+Deacrisng  0.001
 Increasing 0.0
 AShaped 0.001
 Constant 0.0
+
+Insertion sort dla listy o wielkosci 5000
+Random 0.043
+Deacrisng  0.05
+Increasing 0.0
+AShaped 0.016
+Constant 0.0
+
+Insertion sort dla listy o wielkosci 10000
+Random 0.079
+Deacrisng  0.208
+Increasing 0.0
+AShaped 0.088
+Constant 0.0
+
+Insertion sort dla listy o wielkosci 50000
+Random 2.55
+Deacrisng  2.516
+Increasing 0.0
+AShaped 1.397
+Constant 0.001
+
+Insertion sort dla listy o wielkosci 75000
+Random 4.79
+Deacrisng  5.962
+Increasing 0.001
+AShaped 3.379
+Constant 0.001
+
+Insertion sort dla listy o wielkosci 100000
+Random 5.908
+Deacrisng  10.693
+Increasing 0.0
+AShaped 5.503
+Constant 0.001
 
 
 
@@ -14,14 +49,84 @@ Increasing 0.0
 AShaped 0.0
 Constant 0.0
 
-
-
-selection sort dla listy o wielkosci 100
-Random 0.001
-Deacrisng  0.001
+Shell sort dla listy o wielkosci 5000
+Random 0.009
+Deacrisng  0.002
 Increasing 0.0
 AShaped 0.001
 Constant 0.001
+
+Shell sort dla listy o wielkosci 10000
+Random 0.003
+Deacrisng  0.002
+Increasing 0.002
+AShaped 0.001
+Constant 0.001
+
+Shell sort dla listy o wielkosci 50000
+Random 0.022
+Deacrisng  0.008
+Increasing 0.008
+AShaped 0.004
+Constant 0.004
+
+Shell sort dla listy o wielkosci 75000
+Random 0.016
+Deacrisng  0.008
+Increasing 0.004
+AShaped 0.007
+Constant 0.004
+
+Shell sort dla listy o wielkosci 100000
+Random 0.028
+Deacrisng  0.01
+Increasing 0.005
+AShaped 0.007
+Constant 0.007
+
+
+
+selection sort dla listy o wielkosci 100
+Random 0.0
+Deacrisng  0.0
+Increasing 0.001
+AShaped 0.0
+Constant 0.0
+
+selection sort dla listy o wielkosci 5000
+Random 0.033
+Deacrisng  0.032
+Increasing 0.019
+AShaped 0.049
+Constant 0.013
+
+selection sort dla listy o wielkosci 10000
+Random 0.078
+Deacrisng  0.151
+Increasing 0.058
+AShaped 0.166
+Constant 0.052
+
+selection sort dla listy o wielkosci 50000
+Random 1.669
+Deacrisng  1.98
+Increasing 1.411
+AShaped 2.339
+Constant 1.408
+
+selection sort dla listy o wielkosci 75000
+Random 3.889
+Deacrisng  4.12
+Increasing 3.207
+AShaped 4.712
+Constant 3.195
+
+selection sort dla listy o wielkosci 100000
+Random 7.398
+Deacrisng  7.468
+Increasing 5.739
+AShaped 8.199
+Constant 5.611
 
 
 
@@ -32,12 +137,81 @@ Increasing 0.0
 AShaped 0.0
 Constant 0.0
 
+Heap sort dla listy o wielkosci 5000
+Random 0.003
+Deacrisng  0.005
+Increasing 0.004
+AShaped 0.005
+Constant 0.002
+
+Heap sort dla listy o wielkosci 10000
+Random 0.005
+Deacrisng  0.002
+Increasing 0.004
+AShaped 0.002
+Constant 0.0
+
+Heap sort dla listy o wielkosci 50000
+Random 0.036
+Deacrisng  0.019
+Increasing 0.018
+AShaped 0.021
+Constant 0.001
+
+Heap sort dla listy o wielkosci 75000
+Random 0.031
+Deacrisng  0.02
+Increasing 0.015
+AShaped 0.018
+Constant 0.001
+
+Heap sort dla listy o wielkosci 100000
+Random 0.046
+Deacrisng  0.027
+Increasing 0.022
+AShaped 0.026
+Constant 0.001
+
 
 
 Quick sort dla listy o wielkosci 100
 Random 0.0
 Deacrisng  0.001
-Increasing 0.001
-AShaped 0.0
+Increasing 0.0
 Constant 0.0
 
+AShaped 0.0
+Quick sort dla listy o wielkosci 5000
+Random 0.001
+Deacrisng  0.001
+Increasing 0.001
+Constant 0.09
+AShaped 0.0
+
+Quick sort dla listy o wielkosci 10000
+Random 0.002
+Deacrisng  0.001
+Increasing 0.001
+Constant 0.219
+AShaped 0.002
+
+Quick sort dla listy o wielkosci 50000
+Random 0.01
+Deacrisng  0.005
+Increasing 0.005
+Constant 5.479
+AShaped 0.011
+
+Quick sort dla listy o wielkosci 75000
+Random 0.02
+Deacrisng  0.014
+Increasing 0.014
+przy constant wywala stackoverflow dla wiekszych niz 75000, to po prostu nie robie xd
+AShaped 0.017
+
+Quick sort dla listy o wielkosci 100000
+Random 0.031
+Deacrisng  0.009
+Increasing 0.009
+przy constant wywala stackoverflow dla wiekszych niz 75000, to po prostu nie robie xd
+AShaped 0.01

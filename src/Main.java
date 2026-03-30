@@ -8,11 +8,9 @@ import java.util.function.Function;
 public class Main {
     public static void main(String[] args) throws IOException {
         FileWriter fw = new FileWriter("pomiary.txt");
-        //int[] sizes = {100,5000,10000,50000,75000,100000};
-        int[] sizes = {75000,100000};
+        int[] sizes = {100,5000,10000,50000,75000,100000};
         Random rand = new Random();
-        
-      /*  {//Insertion
+        {//Insertion
             for (Integer i : sizes) {
                 System.out.println("Rozpoczecie pomiaru dla: " + i + "\n" + "-Insertion, randomArray ");
                 fw.write("Insertion sort dla listy o wielkosci " + i + "\n");
@@ -143,9 +141,6 @@ public class Main {
             }
         }
         fw.write("\n\n");
-
-
-       */
         { // QuickSort
             for (Integer i : sizes) {
                 System.out.println("Rozpoczecie pomiaru dla: " + i + "\n" + "-quick, randomArray ");
@@ -153,23 +148,28 @@ public class Main {
                 fw.write("Random " + (sortingAlgorithms.algorythmTime(
                         sortingAlgorithms::quickSort,
                         listGenerators::generateRandomArray, i)) + "\n");
-                    System.out.println("-quick, decrasing");
+                System.out.println("-quick, decrasing");
                     fw.write("Deacrisng  " + (sortingAlgorithms.algorythmTime(
                             sortingAlgorithms::quickSort,
                             listGenerators::generateDecreasingArray, i)) + "\n");
                     System.out.println("-quick, increasing");
+
                     fw.write("Increasing " + (sortingAlgorithms.algorythmTime(
                             sortingAlgorithms::quickSort,
                             listGenerators::generateIncreasingArray, i)) + "\n");
-                    System.out.println("-quick, ashaped");
-                    fw.write("AShaped " + (sortingAlgorithms.algorythmTime(
-                            sortingAlgorithms::quickSort,
-                            listGenerators::generateAShapedArray, i)) + "\n");
-                    System.out.println("-quick, constant");
-                fw.write("Constant " + (sortingAlgorithms.algorythmTime(
+                    if(i<75000) {
+                        System.out.println("-quick, constant");
+                        fw.write("Constant " + (sortingAlgorithms.algorythmTime(
+                                sortingAlgorithms::quickSort,
+                                (rozmiar) -> listGenerators.generateConstantArray(i, rand.nextInt(1000)), i)) + "\n");
+                    }else{
+                        fw.write("wywala stackoverflow dla wiekszych niz 75000, to po prostu nie robie xd \n");
+                    }
+                System.out.println("-quick, ashaped");
+                fw.write("AShaped " + (sortingAlgorithms.algorythmTime(
                         sortingAlgorithms::quickSort,
-                        (rozmiar) -> listGenerators.generateConstantArray(i, rand.nextInt(1000)), i)) + "\n");
-                fw.write("\n");
+                        listGenerators::generateAShapedArray, i)) + "\n");
+
                 System.out.println("Koniec pomiaru");
             }
         }
@@ -325,6 +325,8 @@ class sortingAlgorithms{
                 heapify(list, i, 0);
             }
         }
+    private static final Random random = new Random();
+
     public static void quickSort(List<Integer> list) {
         if (list == null || list.size() <= 1) {
             return;
@@ -342,11 +344,11 @@ class sortingAlgorithms{
     }
 
     private static int partition(List<Integer> list, int low, int high) {
-        int midIndex = low + (high - low) / 2;
-        int swapTemp = list.get(midIndex);
-        list.set(midIndex, list.get(high));
-        list.set(high, swapTemp);
-        int pivot = list.get(high);
+        int randomIndex = random.nextInt(high - low + 1) + low;
+        int pivotValue = list.get(randomIndex);
+        list.set(randomIndex, list.get(high));
+        list.set(high, pivotValue);
+        int pivot = list.get(high); // Teraz pivotem jest nasz wylosowany element
         int i = (low - 1);
 
         for (int j = low; j < high; j++) {
