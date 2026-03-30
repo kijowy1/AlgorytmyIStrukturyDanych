@@ -43,7 +43,7 @@ public class Main {
         }
         fw.write("\n\n");
         
-        {// shellSort
+        {//shellSort
             for (Integer i : sizes) {
                 System.out.println("Rozpoczecie pomiaru dla: " + i + "\n" + "-shell, randomArray ");
                 fw.write("Shell sort dla listy o wielkosci " + i + "\n");

@@ -86,7 +86,7 @@ Constant 0.007
 
 
 
-selection sort dla listy o wielkosci 100
+Selection sort dla listy o wielkosci 100
 Random 0.0
 Deacrisng  0.0
 Increasing 0.001
