@@ -164,7 +164,7 @@ public class Main {
                                 sortingAlgorithms::quickSort,
                                 (rozmiar) -> listGenerators.generateConstantArray(i, rand.nextInt(1000)), i)) + "\n");
                     }else{
-                        fw.write("wywala stackoverflow dla wiekszych niz 75000, to po prostu nie robie xd \n");
+                        fw.write("wywala stackoverflow dla wiekszych niz 61767, to po prostu nie robie xd \n");
                     }
                 System.out.println("-quick, ashaped");
                 fw.write("AShaped " + (sortingAlgorithms.algorythmTime(
