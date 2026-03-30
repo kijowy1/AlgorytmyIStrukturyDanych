@@ -1,44 +1,11 @@
 Insertion sort dla listy o wielkosci 100
-Random 0.0
-Deacrisng  0.001
+Random 0.001
+Deacrisng  0.0
 Increasing 0.0
 AShaped 0.001
 Constant 0.0
 
-Insertion sort dla listy o wielkosci 5000
-Random 0.018
-Deacrisng  0.027
-Increasing 0.0
-AShaped 0.01
-Constant 0.0
 
-Insertion sort dla listy o wielkosci 10000
-Random 0.043
-Deacrisng  0.087
-Increasing 0.0
-AShaped 0.055
-Constant 0.0
-
-Insertion sort dla listy o wielkosci 50000
-Random 1.985
-Deacrisng  2.257
-Increasing 0.0
-AShaped 1.174
-Constant 0.0
-
-Insertion sort dla listy o wielkosci 75000
-Random 4.564
-Deacrisng  5.315
-Increasing 0.001
-AShaped 2.589
-Constant 0.001
-
-Insertion sort dla listy o wielkosci 100000
-Random 7.585
-Deacrisng  9.157
-Increasing 0.001
-AShaped 4.846
-Constant 0.0
 
 Shell sort dla listy o wielkosci 100
 Random 0.0
@@ -47,38 +14,30 @@ Increasing 0.0
 AShaped 0.0
 Constant 0.0
 
-Shell sort dla listy o wielkosci 5000
-Random 0.005
-Deacrisng  0.0
+
+
+selection sort dla listy o wielkosci 100
+Random 0.001
+Deacrisng  0.001
 Increasing 0.0
 AShaped 0.001
 Constant 0.001
 
-Shell sort dla listy o wielkosci 10000
-Random 0.002
-Deacrisng  0.001
-Increasing 0.001
-AShaped 0.002
+
+
+Heap sort dla listy o wielkosci 100
+Random 0.0
+Deacrisng  0.0
+Increasing 0.0
+AShaped 0.0
 Constant 0.0
 
-Shell sort dla listy o wielkosci 50000
-Random 0.013
-Deacrisng  0.008
-Increasing 0.003
-AShaped 0.004
-Constant 0.002
 
-Shell sort dla listy o wielkosci 75000
-Random 0.015
-Deacrisng  0.006
-Increasing 0.004
-AShaped 0.005
-Constant 0.004
 
-Shell sort dla listy o wielkosci 100000
-Random 0.021
-Deacrisng  0.008
-Increasing 0.005
-AShaped 0.007
-Constant 0.006
+Quick sort dla listy o wielkosci 100
+Random 0.0
+Deacrisng  0.001
+Increasing 0.001
+AShaped 0.0
+Constant 0.0
 
