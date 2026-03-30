@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FileWriter fw = new FileWriter("pomiary.txt");
         //int[] sizes = {100,5000,10000,50000,75000,100000};
-        int[] sizes = {100};
+        int[] sizes = {1000};
         Random rand = new Random();
         
         {//Insertion
