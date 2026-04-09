@@ -7,7 +7,7 @@ import java.util.function.Function;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        FileWriter fw = new FileWriter("pomiary.txt");
+        FileWriter fw = new FileWriter("sortingAlgorithms/pomiary.txt");
         int[] sizes = {100,5000,10000,50000,61767,100000};
         Random rand = new Random();
         {//Insertion
