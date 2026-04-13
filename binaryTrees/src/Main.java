@@ -34,6 +34,7 @@ class BinaryTree {
         if(start>end){
             return null;
         }
+
         int mid = (start+end)/2;
         Node node = new Node(list.get(mid));
 
