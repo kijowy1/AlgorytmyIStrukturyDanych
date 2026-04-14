@@ -3,11 +3,11 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        List<Integer> list = new ArrayList<>();
-        Collections.sort(list);
+        List<Integer> list = listGenerator(15);
         Node root = BinaryTree
-                .buildTreeBST(list,0, list.size()-1);
+                .buildTreeBST(list);
         System.out.println(root.left.right.key);
+
     }
     private static List<Integer> listGenerator(int size){
         Random rnd = new Random();
@@ -29,18 +29,35 @@ class Node {
     }
 }
 class BinaryTree {
-    Node root;
-    public static Node buildTreeBST(List<Integer> list, int start, int end){
+    public static Node buildTreeAVL(List<Integer> list, int start, int end){
+        Collections.sort(list);
         if(start>end){
             return null;
         }
-
         int mid = (start+end)/2;
-        Node node = new Node(list.get(mid));
+        Node root = new Node(list.get(mid));
 
-        node.left = buildTreeBST(list,start,mid-1);
-        node.right = buildTreeBST(list,mid+1,end);
+        root.left = buildTreeAVL(list,start,mid-1);
+        root.right = buildTreeAVL(list,mid+1,end);
 
-        return node;
+        return root;
+    }
+    public static Node buildTreeBST(List<Integer> list){
+        Node root = null;
+        for(Integer i:list){
+            root = insert(root,i);
+        }
+        return root;
+    }
+    private static Node insert(Node root, int value) {
+        if(root==null){
+            return new Node(value);
+        }
+        if (value < root.key) {
+            root.left = insert(root.left, value);
+        } else {
+            root.right = insert(root.right, value);
+        }
+        return root;
     }
 }
