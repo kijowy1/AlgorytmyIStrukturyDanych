@@ -1,12 +1,16 @@
 import java.util.*;
 
 public class Main {
+    static int height = 0;
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        List<Integer> list = listGenerator(15);
+        List<Integer> list = new ArrayList<>();
+        for(int i=0;i<15;i++){
+            list.add(i);
+        }
         Node root = BinaryTree
                 .buildTreeBST(list);
-        System.out.println(root.left.right.key);
+        System.out.println(root.key);
 
     }
     private static List<Integer> listGenerator(int size){
@@ -29,8 +33,22 @@ class Node {
     }
 }
 class BinaryTree {
+    public static Integer findMin(Node root){
+
+        return null;
+    }
+    public static Integer getHeight(Node root){
+        if (root == null) return 0;
+        int height = 0;
+         int leftHeight = getHeight(root.left);
+         int rightHeight = getHeight(root.right);
+
+         return Math.max(leftHeight,rightHeight)+1;
+    }
     public static Node buildTreeAVL(List<Integer> list, int start, int end){
-        Collections.sort(list);
+        if(start==0 && end==list.size()-1){
+            Collections.sort(list);
+        }
         if(start>end){
             return null;
         }
@@ -44,6 +62,7 @@ class BinaryTree {
     }
     public static Node buildTreeBST(List<Integer> list){
         Node root = null;
+        int bstHeight = 0;
         for(Integer i:list){
             root = insert(root,i);
         }
