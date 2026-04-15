@@ -5,15 +5,27 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         List<Integer> list = new ArrayList<>();
-        for(int i=0;i<15;i++){
-            list.add(i);
-        }
-        Node root = BinaryTree
-                .buildTreeBST(list);
-        System.out.println(root.key);
+        //List<Integer> list = randomListGenerator(15);
+            list.add(2);
+            list.add(5);
+            list.add(10);
+            list.add(12);
+            list.add(13);
+            list.add(6);
+            list.add(9);
+        int dupa = 1;
 
+
+        //list.forEach(System.out::println);
+        Node root = BinaryTree
+                .buildTreeAVL(list,0,list.size()-1);
+        /*System.out.println("\n" + BinaryTree.findMax(root));
+
+        System.out.println(BinaryTree.findMin(root));
+         */
+        BinaryTree.printPreOrder(root);
     }
-    private static List<Integer> listGenerator(int size){
+    private static List<Integer> randomListGenerator(int size){
         Random rnd = new Random();
         List<Integer> list = new ArrayList<>();
         for(int i=0;i<size;i++){
@@ -34,15 +46,21 @@ class Node {
 }
 class BinaryTree {
     public static Integer findMin(Node root){
-
-        return null;
+        if(root==null) return null;
+        if(root.left==null) return root.key;
+        return findMin(root.left);
+    }public static Integer findMax(Node root){
+        if(root==null) return null;
+        if(root.right==null) return root.key;
+        return findMax(root.right);
     }
     public static Integer getHeight(Node root){
-        if (root == null) return 0;
-        int height = 0;
+        if (root==null){
+            return 0;
+        }
+         int height = 0;
          int leftHeight = getHeight(root.left);
          int rightHeight = getHeight(root.right);
-
          return Math.max(leftHeight,rightHeight)+1;
     }
     public static Node buildTreeAVL(List<Integer> list, int start, int end){
@@ -78,5 +96,36 @@ class BinaryTree {
             root.right = insert(root.right, value);
         }
         return root;
+    }
+    public static void printInOrder(Node root) {
+        if (root == null) {
+            return;
+        }
+        printInOrder(root.left);
+
+        System.out.print(root.key + " ");
+
+        printInOrder(root.right);
+    }public static void printPostOrder(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        printPostOrder(root.left);
+
+        printPostOrder(root.right);
+
+        System.out.print(root.key + " ");
+    }
+    public static void printPreOrder(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        printPreOrder(root.left);
+
+        printPreOrder(root.right);
+
+        System.out.print(root.key + " ");
     }
 }
