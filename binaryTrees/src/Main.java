@@ -5,25 +5,28 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         List<Integer> list = new ArrayList<>();
-        //List<Integer> list = randomListGenerator(15);
-            list.add(2);
-            list.add(5);
-            list.add(10);
-            list.add(12);
-            list.add(13);
-            list.add(6);
-            list.add(9);
-        int dupa = 1;
+            String tree = scan.next();
+            switch (tree) {
+                case "AVL":
+                    System.out.print("nodes> ");
+                    int nodes = scan.nextInt();
+                    System.out.print("insert> ");
+                    for(int i=0;i<nodes;i++){
+                        list.add(scan.nextInt());
+                    }
+                    break;
+                case "BST":
+                    System.out.print("nodes> ");
+                    nodes = scan.nextInt();
+                    System.out.print("insert> ");
+                    for(int i=0;i<nodes;i++){
+                        list.add(scan.nextInt());
+                    }
+                    break;
+                default:
+                    System.out.println("There's no such a tree as: " + tree);
+            }
 
-
-        //list.forEach(System.out::println);
-        Node root = BinaryTree
-                .buildTreeAVL(list,0,list.size()-1);
-        /*System.out.println("\n" + BinaryTree.findMax(root));
-
-        System.out.println(BinaryTree.findMin(root));
-         */
-        BinaryTree.printPreOrder(root);
     }
     private static List<Integer> randomListGenerator(int size){
         Random rnd = new Random();
@@ -128,4 +131,14 @@ class BinaryTree {
 
         System.out.print(root.key + " ");
     }
+    public static Node deleteNode(Node root) {
+        if(root==null){
+            return null;
+        }
+        root.left = deleteNode(root.left);
+        root.right = deleteNode(root.right);
+        System.out.print(root.key + " ");
+        return null;
+    }
+
 }
