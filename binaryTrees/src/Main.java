@@ -32,17 +32,29 @@ public class Main {
                         }
                     }
                     System.out.print("insert> ");
-                    /*for(int i=0;i<nodes;i++){
+                    for(int i=0;i<nodes;i++){
                         list.add(scan.nextInt());
                     }
-                    
-
-                     */
+                    System.out.print("action> ");
+                    BinaryTrees treeAVL = new BinaryTrees();
+                    treeAVL.buildTreeAVL(list);
                     while(scan.hasNext()){
                         String action = scan.next();
                         switch (action) {
                             case "Help":
                                 System.out.println(help);
+                                break;
+                            case "Print":
+                                System.out.print("inOrder: "); treeAVL.printInOrder();
+                                System.out.print("postOrder: "); treeAVL.printPostOrder();
+                                System.out.print("preOrder: "); treeAVL.printPreOrder();
+                                break;
+                            case "Delete":
+                                System.out.print("Deleting Nodes: "); treeAVL.deleteNode();
+                                System.out.println();
+                                break;
+                            case "Exit":
+                                System.exit(0);
                                 break;
                             default:
                                 System.out.println("There's no such a command as: " + action);

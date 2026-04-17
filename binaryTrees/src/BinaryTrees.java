@@ -2,25 +2,38 @@ import java.util.Collections;
 import java.util.List;
 
 public class BinaryTrees {
-    public  Integer findMin(Node root){
-        if(root==null) return null;
-        if(root.left==null) return root.key;
-        return findMin(root.left);
-    }public Integer findMax(Node root){
-        if(root==null) return null;
-        if(root.right==null) return root.key;
-        return findMax(root.right);
+    private Node root;
+    public Integer findMin(){
+        return findMinRecursive(this.root);
     }
-    public Integer getHeight(Node root){
-        if (root==null){
+    public Integer findMax(){
+        return findMaxRecursive(this.root);
+    }
+    public Integer getHeight(){
+        return getHeightRecursive(this.root);
+    }
+    private Integer findMinRecursive(Node current){
+        if(current==null) return null;
+        if(current.left==null) return current.key;
+        return findMinRecursive(current.left);
+    }
+    private Integer findMaxRecursive(Node current){
+        if(current==null) return null;
+        if(current.right==null) return current.key;
+        return findMaxRecursive(current.right);
+    }
+    private Integer getHeightRecursive(Node current){
+        if(current==null){
             return 0;
         }
-        int height = 0;
-        int leftHeight = getHeight(root.left);
-        int rightHeight = getHeight(root.right);
+        int leftHeight = getHeightRecursive(current.left);
+        int rightHeight = getHeightRecursive(current.right);
         return Math.max(leftHeight,rightHeight)+1;
     }
-    public static Node buildTreeAVL(List<Integer> list, int start, int end){
+    public void buildTreeAVL(List<Integer> list){
+        this.root = buildTreeAVLRecursive(list, 0, list.size()-1);
+    }
+    private Node buildTreeAVLRecursive(List<Integer> list, int start, int end){
         if(start==0 && end==list.size()-1){
             Collections.sort(list);
         }
@@ -28,20 +41,18 @@ public class BinaryTrees {
             return null;
         }
         int mid = (start+end)/2;
-        Node root = new Node(list.get(mid));
+        Node node = new Node(list.get(mid));
 
-        root.left = buildTreeAVL(list,start,mid-1);
-        root.right = buildTreeAVL(list,mid+1,end);
-
-        return root;
+        node.left = buildTreeAVLRecursive(list,start,mid-1);
+        node.right = buildTreeAVLRecursive(list,mid+1,end);
+        return node;
     }
-    public static Node buildTreeBST(List<Integer> list){
-        Node root = null;
-        int bstHeight = 0;
+    public Node buildTreeBST(List<Integer> list){
+        this.root = null;
         for(Integer i:list){
-            root = insert(root,i);
+            this.root = insert(this.root,i);
         }
-        return root;
+        return this.root;
     }
     private static Node insert(Node root, int value) {
         if(root==null){
@@ -54,44 +65,63 @@ public class BinaryTrees {
         }
         return root;
     }
-    public void printInOrder(Node root) {
-        if (root == null) {
-            return;
-        }
-        printInOrder(root.left);
-
-        System.out.print(root.key + " ");
-
-        printInOrder(root.right);
-    }public void printPostOrder(Node root) {
-        if (root == null) {
-            return;
-        }
-
-        printPostOrder(root.left);
-
-        printPostOrder(root.right);
-
-        System.out.print(root.key + " ");
+    public void printPreOrder(){
+        printPreOrderFunction(this.root);
+        System.out.println();
     }
-    public void printPreOrder(Node root) {
-        if (root == null) {
+    public void printInOrder(){
+        printInOrderFunction(this.root);
+        System.out.println();
+    }
+    public void printPostOrder(){
+        printPostOrderFunction(this.root);
+        System.out.println();
+    }
+    public void printInOrderFunction(Node current) {
+        if (current == null) {
             return;
         }
-        System.out.print(root.key + " ");
+        printInOrderFunction(current.left);
 
-        printPreOrder(root.left);
+        System.out.print(current.key + " ");
 
-        printPreOrder(root.right);
+        printInOrderFunction(current.right);
+    }
+    public void printPostOrderFunction(Node current) {
+        if (current == null) {
+            return;
+        }
+
+        printPostOrderFunction(current.left);
+
+        printPostOrderFunction(current.right);
+
+        System.out.print(current.key + " ");
+    }
+    private void printPreOrderFunction(Node current) {
+        if (current == null) {
+            return;
+        }
+        System.out.print(current.key + " ");
+
+        printPreOrderFunction(current.left);
+
+        printPreOrderFunction(current.right);
 
     }
-    public Node deleteNode(Node root) {
-        if(root==null){
+    public void deleteNode(){
+        deleteNodeRecursive(this.root);
+    }
+    public Node deleteNodeRecursive(Node current) {
+        if(current==null){
             return null;
         }
-        root.left = deleteNode(root.left);
-        root.right = deleteNode(root.right);
-        System.out.print(root.key + " ");
+        current.left = deleteNodeRecursive(current.left);
+
+        current.right = deleteNodeRecursive(current.right);
+
+        System.out.print(current.key + " ");
+
         return null;
     }
 
