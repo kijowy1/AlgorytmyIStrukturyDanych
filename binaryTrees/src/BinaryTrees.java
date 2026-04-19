@@ -110,6 +110,7 @@ public class BinaryTrees {
 
     }
     public void deleteNode(){
+
         deleteNodeRecursive(this.root);
     }
     public Node deleteNodeRecursive(Node current) {
@@ -122,6 +123,22 @@ public class BinaryTrees {
 
         System.out.print(current.key + " ");
 
+        return null;
+    }
+    public void removeNode(int number){
+        this.root = deleteOneNodeRecursive(this.root, number);
+    }
+    public Node deleteOneNodeRecursive(Node current, int number) {
+        if(current==null){
+            return null;
+        }
+        if(current.key>number) {
+            current.left = deleteOneNodeRecursive(current.left, number);
+        }
+        else {
+            current.right = deleteOneNodeRecursive(current.right, number);
+
+        }
         return null;
     }
 
