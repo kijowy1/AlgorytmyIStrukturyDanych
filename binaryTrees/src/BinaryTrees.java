@@ -126,20 +126,37 @@ public class BinaryTrees {
         return null;
     }
     public void removeNode(int number){
-        this.root = deleteOneNodeRecursive(this.root, number);
+        deleteOneNodeRecursive(this.root, number);
     }
-    public Node deleteOneNodeRecursive(Node current, int number) {
+    private Node deleteOneNodeRecursive(Node current, int number) {
         if(current==null){
             return null;
         }
         if(current.key>number) {
             current.left = deleteOneNodeRecursive(current.left, number);
         }
-        else {
+        else if(current.key<number){
             current.right = deleteOneNodeRecursive(current.right, number);
+        }else{
+            if(current.left==null) { return current.right;}
+            if(current.right==null) { return current.left;}
 
+            Node tempNode = new Node(minNodeVal(current.right));
+
+            current.key = tempNode.key;
+
+            current.right = deleteOneNodeRecursive(current.right,current.right.key);
         }
-        return null;
+        return current;
     }
+    private int minNodeVal(Node root) {
+        int min = root.key;
+        while (root.left != null) {
+            min = root.left.key;
+            root = root.left;
+        }
+        return min;
+    }
+
 
 }
